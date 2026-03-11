@@ -1,0 +1,72 @@
+:root{
+    --backgroundColor:rgb(90, 90, 90);
+    --secondaryBackgroundColor: rgb(48, 48, 48);
+    --thirdBackgroundColor:whitesmoke;
+    --textColor: white;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+h1,h2,h3,p{
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+
+body{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  min-height: 100vh;
+}
+
+header{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--backgroundColor);
+    color:var(--textColor);
+}
+
+nav{ 
+    display:  flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background-color: var(--secondaryBackgroundColor);
+}
+
+a{ 
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+main{
+    height: 100%;
+    min-height: 45vh;
+    grid-column: span 3;
+    text-align: start;
+    background-color: var(--thirdBackgroundColor);
+}
+
+p{
+    margin-top: 5px;
+}
+
+footer{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+}
