@@ -17,7 +17,7 @@ body{
     align-items: center;
 }
 
-header, footer{
+header{
     width: 100%;
 }
 
@@ -144,6 +144,7 @@ li{
 }
 
 footer {
+    width: 100%;
     margin-top: 20px;
     padding: 10px;
     background-color: var(--background-color-1);
