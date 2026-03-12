@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals - Bairon Cayetano - Home-Page">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./styles/base.css">
+    <script src="./scripts/getdates.js" defer></script>
+    <title>WDD 131 - Dynamic Web Fundamentals - Bairon Cayetano</title>
+</head>
+<body>
+    <header>
+        <span id="course-title">WDD131 - Dynamic Web Fundamentals</span>
+        <nav>
+            <a href="https://www.linkedin.com/">Profile</a>
+            <a href="https://byupw.instructure.com/">I-Learn</a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/enos/1?lang=spa&id=p1#p1">
+                Scripture
+            </a>
+            <a href="./final-project">Final Project</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Bairon Cayetano</h1>
+        <section class="card profile-description">
+            <div class="heading">
+                <p>About Me</p>
+            </div>
+            <div class="card-container">
+                <p>My name is Bairon Cayetano and I am 21 years old. 
+                    I was born in Honduras and I live with my family in a city called 'Tegucigalpa'.
+                    I love playing video games and practicing programming. I am excited for the future
+                    and how I can help this world to become a better place for everyone through software. 
+                </p>
+                <div class="image-container">
+                    <img src="./images/profile.jpg" alt="profile-image">
+                </div>
+            </div>
+            <div class="card-container">
+                <span>Tegucigalpa, Honduras</span>
+                <div class="image-container">
+                    <img src="./images/tegucigalpa-at-night.jpg" alt="tegucigalpa city at night">
+                </div>
+                <p>Tegucigalpa is the capital and largest city of Honduras.
+                   It is located in a highland valley in the central-southern part
+                   of the country. It is surrounded by mountains and serves as the nation's political
+                   and administrative center.
+                </p>
+            </div>
+        </section>
+        <section class="card resources-container">
+            <div class="heading">
+                <p>Web Dev Resources</p>
+            </div>
+            <div class="card-container">
+              <ul>
+                <li><a href="https://dev.to/">Dev.to Comunity</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/">Mozilla Developer</a></li>
+                <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
+                <li><a href="https://www.w3schools.com/">W3 School</a></li>
+              </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> - Bairon Cayetano - Honduras</p>
+        <p id="lastModified" class="lastModified"></p>
+    </footer>
+</body>
+</html>
