@@ -48,13 +48,15 @@ header{
     text-align: end;
 }
 
-#menu{
-    display: none;
+nav{
+   display: none;
 }
 
-#menu.active{
-    display: block;
+nav.active{
+    display:flex;
+    flex-direction: column;
 }
+
 
 #menuIcon::before{
     content: "☰";
