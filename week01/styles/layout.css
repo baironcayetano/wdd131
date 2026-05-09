@@ -1,0 +1,65 @@
+/** Colors **/
+:root{
+    --modified-green: #0C1A1A;
+    --light-blue-green:#6ACFC7;
+    --background-color:white;
+}
+
+body{
+    margin: 0px 40px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 80dvh;
+    width: 90vw;
+}
+
+header{
+    padding: 10px;
+    grid-column: span 4;
+    font-size: 20px;
+    background-color: var(--modified-green);
+    color: white;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+nav a{
+    font-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: span 4;
+    font-size: 18px;
+}
+
+main .content{
+    padding: 10px;
+    grid-column: span 3;
+    background-color: whitesmoke;
+}
+
+main aside{
+    padding: 10px;
+    grid-column: span 1;
+}
+
+footer{
+    padding: 10px;
+    grid-column: span 4;
+    font-size: 20px;
+    background-color: var(--modified-green);
+    color: white;
+}
