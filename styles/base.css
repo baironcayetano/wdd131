@@ -1,3 +1,75 @@
 :root{
     box-sizing: border-box;
 }
+
+*{
+    --bg-color:rgb(32, 32, 32);
+    --bg-color-hover:rgb(53, 53, 53);
+    --secondary-text-color:white;
+}
+
+body{
+    margin: 0px 10px;
+    margin-bottom: 0px;
+}
+
+header{
+    background-color: var(--bg-color);
+    color: var(--secondary-text-color);
+    padding: 10px;
+}
+
+#course-title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+nav{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+nav a{
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--secondary-text-color);
+}
+
+nav a:hover{
+    background-color: var(--bg-color-hover);
+    cursor: pointer;
+}
+
+main{
+    margin: 0 50px;
+}
+
+img{
+    width: 250px;
+    height: auto;
+}
+
+footer{
+    background-color: var(--bg-color);
+    color: var(--secondary-text-color);
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+footer p{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+}
