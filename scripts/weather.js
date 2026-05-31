@@ -1,0 +1,18 @@
+const temperature = 40;
+const windVelocity = 11;
+const windChillResult = (windVelocity > 4.8 && temperature <= 10) ? `${calculateWindChill()} °C` : "N/A"
+
+function calculateWindChill(){
+    let windChill = 13.12 + (0.6215*temperature) - (11.37*Math.pow(windVelocity,0.16)) + (0.3965*temperature*Math.pow(windVelocity,0.16));
+    return windChill
+}
+
+const strongElement = (textContent) => document.createElement("strong").textContent = textContent;
+
+const temperatureElement = document.getElementById("temperatureElement");
+const windElement = document.getElementById("windElement");
+const windChillElement = document.getElementById("windChillElement");
+
+temperatureElement.append(strongElement(`${temperature} °C`));
+windElement.append(strongElement(`${windVelocity} km/h`));
+windChillElement.append(strongElement(windChillResult))

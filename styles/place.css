@@ -1,8 +1,10 @@
-@media screen and (max-width:500px) {
+@media screen and (max-width:1000px) {
+    
     .hero{
         width: 100%;
         height: auto;
-        z-index: 0;
+        position:static !important;
+        display: block;
     }
 
     .hero img{
@@ -10,5 +12,23 @@
         height: auto;
     }
 
+    .card{
+        padding: 0px;
+        width: 100% !important;
+        position: static !important;
+        display: block;
+        margin-bottom: 20px;
+        min-height: auto;
+    }
+
+    #weather, #data{
+        position: static !important;
+    }
+
+    .card .title{
+        position: static !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
 
 }

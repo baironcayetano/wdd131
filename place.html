@@ -21,7 +21,7 @@
 </head>
 <body>
     <header>
-        <span>Madagascar</span>
+        <h1>Madagascar</h1>
     </header>
     <main>
         <div class="hero">
@@ -31,8 +31,32 @@
                 <img src="./images/madagascar-hero-small.webp" alt="A lemur in madagascar" width="500" height="250">
             </picture>
         </div>
-        <div class="data"></div>
-        <div class="weather"></div>
+        <div class="card" id="data">
+            <div class="title">
+                <span>Data</span>
+            </div>
+            <ul class="card-body" id="data-body">
+                <li><strong>Area:</strong> 587,041 sq km</li>
+                <li><strong>Population:</strong> 27,691,018</li>
+                <li><strong>Capital:</strong> Antananarivo</li>
+                <li><strong>Languages:</strong> Malagasy, French</li>
+                <li><strong>Currency:</strong> Malagasy Ariary</li>
+                <li><strong>Time Zone:</strong> UTC+3</li>
+                <li><strong>Calling Code:</strong>+261</li>
+                <li><strong>Internet TLD:</strong>.mg</li>
+            </ul>
+        </div>
+        <div class="card" id="weather">
+            <div class="title">
+                <span>Weather</span>
+            </div>
+            <ul class="card-body" id="weather-body">
+                <li id="temperatureElement"></li>
+                <li><strong>Conditions</strong> Partly Cloudy</li>
+                <li id="windElement"></li>
+                <li id="windChillElement"></li>
+            </ul>
+        </div>
     </main>
     <footer>
         <p>&copy; <span id="currentyear"></span> Bairon Cayetano | Honduras</p>

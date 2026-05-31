@@ -5,6 +5,7 @@
 :root{
     --secondary-bg-color:rgb(158, 26, 26);
     --secondary-text-color:white;
+    --third-bg-color:rgb(68, 151, 68);
 }
 
 body{
@@ -14,10 +15,13 @@ body{
 header{
     width: 100%;
     text-align: center;
-    font-size: 40px;
     padding: 10px;
     background-color: var(--secondary-bg-color);
     color: var(--secondary-text-color);
+}
+
+header h1{
+    font-size: 36px;
 }
 
 footer{
@@ -30,14 +34,75 @@ footer{
     color: var(--secondary-text-color);
     font-size: 20px;
 }
-
+main{
+    position: relative;
+}
 .hero{
         width: 100%;
         height: auto;
-        z-index: -1;
+        position: relative;
+        z-index: 0;
 }
 
 .hero img{
         width: 100%;
         height: auto;
+        display: block;
+}
+
+.card{
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    min-height: 200px;
+    height: max-content;
+    width: 350px;
+    padding: 20px;
+}
+
+.card .title{
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 90%;
+    text-align: center;
+    background: var(--third-bg-color);
+    padding: 10px;
+}
+
+.card .title span{
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    color: var(--secondary-text-color);
+}
+
+#weather .title span::after{
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    background-image: url("../images/weather-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+
+}
+
+#data{
+    top:30px;
+    left: 30px;
+}
+
+#weather{
+    top:60%;
+    right: 30px;
+}
+
+.card-body{
+    position: static;
+    margin-top: 50px;
+    list-style: none;
+    font-size: 20px;
 }
