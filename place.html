@@ -6,7 +6,9 @@
     <meta name="author" content="Bairon Cayetano">
     <meta name="description" content="WDD 131 - Dynamic Web Fundamentals | Country Page">
 
+    <!-- CSS--->
     <link rel="stylesheet" href="./styles/place.css">
+    <link rel="stylesheet" href="./styles/place-large.css">
     
     <!-- Fonts --->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,11 +16,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <script src="./scripts/weather.js" defer></script> 
+    <script src="scripts/getdates.js" defer></script>
     <title>Country Page</title>
 </head>
 <body>
-    <header>Header</header>
-    <main>Main</main>
-    <footer>Footer</footer>
+    <header>
+        <span>Madagascar</span>
+    </header>
+    <main>
+        <div class="hero">
+              <picture>
+                <source media="(min-width:1000px )" srcset="./images/madagascar-hero.webp">
+                <source media="(min-width: 500px)" srcset="./images/madagascar-hero-medium.webp">
+                <img src="./images/madagascar-hero-small.webp" alt="A lemur in madagascar" width="500" height="250">
+            </picture>
+        </div>
+        <div class="data"></div>
+        <div class="weather"></div>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Bairon Cayetano | Honduras</p>
+        <p>Last modification: <span id="lastModified"></span></p>
+    </footer>
 </body>
 </html>

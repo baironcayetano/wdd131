@@ -1,0 +1,14 @@
+@media screen and (max-width:500px) {
+    .hero{
+        width: 100%;
+        height: auto;
+        z-index: 0;
+    }
+
+    .hero img{
+        width: 100%;
+        height: auto;
+    }
+
+
+}
