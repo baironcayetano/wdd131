@@ -7,12 +7,10 @@ function calculateWindChill(){
     return windChill
 }
 
-const strongElement = (textContent) => document.createElement("strong").textContent = textContent;
-
 const temperatureElement = document.getElementById("temperatureElement");
 const windElement = document.getElementById("windElement");
 const windChillElement = document.getElementById("windChillElement");
 
-temperatureElement.append(strongElement(`${temperature} °C`));
-windElement.append(strongElement(`${windVelocity} km/h`));
-windChillElement.append(strongElement(windChillResult))
+temperatureElement.textContent = `<strong>Temperature:</strong> ${temperature} °C`;
+windElement.textContent = `<strong>Wind:</strong> ${windVelocity} km/h`;
+windChillElement.textContent = `<strong>Wind Chill:</strong> ${windChillResult}`;
