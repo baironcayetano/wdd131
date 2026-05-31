@@ -11,6 +11,6 @@ const temperatureElement = document.getElementById("temperatureElement");
 const windElement = document.getElementById("windElement");
 const windChillElement = document.getElementById("windChillElement");
 
-temperatureElement.textContent = `<strong>Temperature:</strong> ${temperature} °C`;
-windElement.textContent = `<strong>Wind:</strong> ${windVelocity} km/h`;
-windChillElement.textContent = `<strong>Wind Chill:</strong> ${windChillResult}`;
+temperatureElement.innerHTML = `<strong>Temperature:</strong> ${temperature} °C`;
+windElement.innerHTML = `<strong>Wind:</strong> ${windVelocity} km/h`;
+windChillElement.innerHTML = `<strong>Wind Chill:</strong> ${windChillResult}`;
