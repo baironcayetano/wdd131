@@ -99,7 +99,6 @@ const temples = [
   },
 ];
 
-const mainElement = document.getElementById("main");
 const filterElement = document.getElementById("filter");
 
 function capitalizeString(str){
@@ -133,6 +132,7 @@ function filter(e){
 
 function renderTemples(filteredTemples=temples,pageName="Home"){
     //Title
+    let mainElement = document.getElementById("main");
     mainElement.innerHTML = `<h1>${capitalizeString(pageName)}</h1>`;
     
     filteredTemples.forEach((temple)=>{
