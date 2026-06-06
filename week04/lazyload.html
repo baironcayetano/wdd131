@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals | Lazy Loading Exercise">
+    <link rel="stylesheet" href="./styles/lazyload.css">
+    <title>LazyLoading Images Exercise</title>
+</head>
+<body>
+    <header>
+        <span>Lazy Loading Exercise</span>
+    </header>
+    <main>
+        <h1>Lazy Loading:</h1>
+        <p>Lazy loading is a strategy to identify resources as non-blocking (non-critical) and load these only when needed.</p>
+        <h2>Images</h2>
+        <div class="gallery">
+            <picture>
+                <source media="(min-width:1000px )" srcset="./images/guam-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/guam-temple-medium.webp">
+                <img src="./images/guam-temple-small.webp" alt="Yigo Guam, Temple." width="500" height="250" loading="lazy">
+            </picture>
+             <picture>
+                <source media="(min-width:1000px )" srcset="./images/san-diego-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/san-diego-temple-medium.webp">
+                <img src="./images/san-diego-temple-small.webp" alt="San Diego California, Temple." width="500" height="250" loading="lazy">
+            </picture>
+             <picture>
+                <source media="(min-width:1000px )" srcset="./images/manila-philippines-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/manila-philippines-temple-medium.webp">
+                <img src="./images/manila-philippines-temple-small.webp" alt="Manila Philippines, Temple." width="500" height="250" loading="lazy">
+            </picture>
+            <picture>
+                <source media="(min-width:1000px )" srcset="./images/san-diego-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/san-diego-temple-medium.webp">
+                <img src="./images/san-diego-temple-small.webp" alt="San Diego California, Temple." width="500" height="250" loading="lazy">
+            </picture>
+             <picture>
+                <source media="(min-width:1000px )" srcset="./images/manila-philippines-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/manila-philippines-temple-medium.webp">
+                <img src="./images/manila-philippines-temple-small.webp" alt="Manila Philippines, Temple." width="500" height="250" loading="lazy">
+            </picture>
+             <picture>
+                <source media="(min-width:1000px )" srcset="./images/guam-temple-large.webp">
+                <source media="(min-width: 500px)" srcset="./images/guam-temple-medium.webp">
+                <img src="./images/guam-temple-small.webp" alt="Yigo Guam, Temple." width="500" height="250" loading="lazy">
+            </picture>
+        </div>
+    </main>
+    <footer>
+        <span>Footer content</span>
+    </footer>
+</body>
+</html>
