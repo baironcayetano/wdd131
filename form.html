@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="This website has been built to practice the creation of forms using best practices">
+    <title>Product Review Form </title>
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/form.css">
+    <script src="./scripts/getdates.js" defer></script>
+    <script src="./scripts/form.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Project Review</h1>
+    </header>
+    <main>
+        <form method="get" action="review.html">
+            <fieldset>
+                <legend>Product</legend>
+                <label for="productName">
+                    Product Name*
+                </label>
+                <select name="productName" id="productName" required>
+                    <option value="" selected disabled>Select a product</option>
+                    <!-- The next options are added dinamically with js-->
+                </select>
+                <p>Overall Rating*</p>
+                <div class="stars">
+                    <input type="radio" name="rating" value="1" id="one-star" aria-label="1 star" required>
+                    <label for="one-star"></label>
+                    <input type="radio" name="rating" value="2" id="two-stars" aria-label="2 stars" required>
+                    <label for="two-stars"></label>
+                    <input type="radio" name="rating" value="3" id="three-stars" aria-label="3 stars" required>
+                    <label for="three-stars"></label>
+                    <input type="radio" name="rating" value="4" id="four-stars" aria-label="4 stars" required>
+                    <label for="four-stars"></label>
+                    <input type="radio" name="rating" value="5" id="five-stars" aria-label="5 stars" required>
+                    <label for="five-stars"></label>
+                </div>
+                <label for="dateOfInstallation">Date of Installation*</label>
+                <input type="date" name="dateOfInstallation" id="dateOfInstallation" required>
+            </fieldset>
+            <fieldset>
+                <legend>Features</legend>
+                <p>Which features did you find useful in the product? (Select all that apply)</p>
+                <div class="features">
+                    <input type="checkbox" name="features" value="Durability" id="durability">
+                    <label for="durability">Durability</label>
+                    <input type="checkbox" name="features" value="Ease of Use" id="easeOfUse">
+                    <label for="easeOfUse">Ease of Use</label>
+                    <input type="checkbox" name="features" value="Performance" id="performance">
+                    <label for="performance">Performance</label>
+                    <input type="checkbox" name="features" value="Design" id="design">
+                    <label for="design">Design</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Review</legend>
+                <label for="writtenReview">Written Review (Optional)</label>
+                <textarea name="writtenReview" id="writtenReview"></textarea>
+                <label for="userName">Your Name (Optional)</label>
+                <input type="text" name="userName" id="userName" autocomplete="name">
+            </fieldset>
+            <input type="submit" value="Post Review">
+        </form>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> - Bairon Cayetano - Honduras</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

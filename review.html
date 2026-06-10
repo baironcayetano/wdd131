@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="This site shows how many reviews we have stored in localstorage">
+    <title>Review</title>
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/review.css">
+    <script src="./scripts/getdates.js" defer></script>
+    <script src="./scripts/review.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Reviews</h1>
+    </header>
+    <main>
+        <div class="message">
+            <h2 class="title">Your review has been posted successfully!</h2>
+            <p>Thanks for your feedback!</p>
+        </div>
+        <p>Total reviews: <span id="reviewsCounter"></span></p>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> - Bairon Cayetano - Honduras</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

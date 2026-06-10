@@ -1,0 +1,154 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+form fieldset{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+fieldset legend{
+    font-size: 20px;
+}
+
+fieldset label{
+    margin-top: 10px;
+    display: flex;
+    font-size:16px;
+    align-items: center;
+}
+
+fieldset p{
+    margin-bottom:0;
+    font-size: 16px;
+}
+
+fieldset div{
+    margin: 20px;
+}
+
+
+.features{
+    width: 100%;
+    max-width: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
+}
+
+.features input{
+    grid-column: span 1;
+}
+
+.features label{
+    grid-column:span 2;
+}
+
+fieldset input[type="text"],input[type="date"],textarea, select{
+        display: block;
+}
+
+
+.stars {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: left;
+    margin: 0px 0px 10px 0px;
+}
+
+.stars > label {
+	color: gold;
+	width: 30px;
+	height: 30px;
+	font-size: 2rem;
+	margin-left: 5px;
+	display: flex;
+	align-items: center;
+	caret-color: rgba(0, 0, 0, 0); 
+}
+
+.stars > label:hover {
+    cursor:pointer;
+	color: #000;
+}
+
+.stars > label::before {
+	content: "\2606";
+}
+
+.stars input:checked ~ label::before {
+	content: "\2605";
+}
+
+.stars input:invalid ~ label{
+    color:red;
+}
+
+input[type="radio"] {
+	display: none;
+	position: relative;
+	caret-color: rgba(0, 0, 0, 0);
+}
+
+fieldset input[type="text"], input[type="date"],textarea, select{
+    background-color: white;
+    border: 1px solid #999;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-top: 10px;
+    color:#555;
+    width:100%;
+    max-width: 400px;
+}
+
+fieldset input[type="text"]:required:valid, input[type="date"]:required:valid, select:required:valid{
+    border-left: 4px solid green;
+}
+
+fieldset input[type="text"]:required:invalid, input[type="date"]:required:invalid, select:required:invalid{
+    background-color: white;
+    border-left: 4px solid red;
+}
+
+
+fieldset input[type="checkbox"]{
+    height: 30px;
+    width: 30px;
+}
+
+fieldset input[type="checkbox"]:hover, label:hover{
+    cursor:pointer;
+}
+
+
+fieldset textarea{
+    height: 200px;
+    font-size: 16px;
+}
+
+fieldset input[type="checkbox"]:hover,input[type="date"], select:hover{
+  cursor:pointer;
+}
+
+form input[type="submit"]{
+    width: 100%;
+    max-width: 200px;
+    background-color: gold;
+    color:black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+form input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: goldenrod;
+}

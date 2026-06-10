@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color: black;
+    --secondary-background-color:whitesmoke;
+    --text-color:black;
+    --secondary-text-color:white;
+}
+
+body{
+     margin: 0px 40px;
+}
+
+main {
+    margin:30px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header, footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    color:var(--secondary-text-color);
+}
+
+
+@media screen and (max-width: 600px){
+    body{
+        margin: 0px;
+    }
+
+    main{
+        margin-bottom:30px;
+    }
+}
