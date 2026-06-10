@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="Project site plan for a clinic schedule planner | WDD131">
+    
+    <!--Icon-->
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+
+    <!-- Typography --->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="./styles/siteplan.css">
+    
+    <!--JS-->
+    <script src="./scripts/dates.js" defer></script>
+    <title>ClinicX Online | Site Plan</title>
+</head>
+<body>
+    <header>
+        <img src="./images/icon.svg" alt="ClinicX Online Icon">
+        <h1>Project site plan</h1>
+    </header>
+    <main>
+        <section id="information">
+            <h2>Information</h2>
+            <div class="card">
+                <h3>Site name</h3>
+                <p>ClinicX Online</p>
+            </div>
+            <div class="card">
+                <h3>Site Purpose</h3>
+                <p>To provide a free scheduler for clinics and hospitals
+                to digitalize their internal operations and enhance their 
+                capacity to deliver high-quality services.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Scenarios</h3>
+                <p>This platform is perfect for hospitals and clinics that need to:</p>
+                <ul>
+                    <li>Track and view daily patient visits at a glance</li>
+                    <li>Easily create, edit, and manage appointments in real time</li>
+                    <li>Maintain a digital registry of new and existing patients</li>
+                    <li>Replace outdated physical agendas and manual logs</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>User Interface (UI)</h2>
+            <div class="card">
+                <h3>Color Schema</h3>
+                <div class="colors">
+                    <div class="color text-secondary" id="color-1">
+                        <span>#243119 (header, footer and h2 elements)</span>
+                    </div>
+                    <div class="color text-secondary" id="color-2">
+                        <span>#068d9d (Subtitles and buttons)</span>
+                    </div>
+                    <div class="color text-secondary" id="color-3">
+                        <span>#6d9dc5 (links)</span>
+                    </div>
+                    <div class="color text-secondary" id="color-4">
+                        <span>black (text)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Typography</h3>
+                <p class="playfair">Playfair (Google fonts)</p>
+                <p cass="playwrite">Playwrite (Google fonts)</p>
+            </div>
+            <div class="card">
+                <h3>Wireframes</h3>
+                <picture>
+                    <source media="(min-width:1000px )" srcset="./images/wireframes.jpg">
+                    <img src="./images/wireframes-small.webp" alt="wireframes for the clinicX Online website" width="500" >
+                </picture>
+                
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentYear"></span> - Bairon Cayetano - Honduras</p>
+    </footer>
+</body>
+</html>
