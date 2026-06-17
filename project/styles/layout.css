@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --first-color:#243119;
+    --second-color:#629460;
+    --third-color:#96be8c;
+    --fs-color-foreground:white;
+    --t-color-foreground:black;
+    --f-color-hover:#3d522d;
+    --full-width:100%;
+}
+
+body{
+    margin: 0px;
+    width: var(--full-width);
+}
+
+header, footer{
+    width: var(--full-width);
+    padding: 15px;
+    background-color: var(--first-color);
+    color:var(--fs-color-foreground)
+}
+
+header{
+    width: var(--full-width);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.menu-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu-header img{
+    width: 80px;
+}
+
+#menu, .menu-header{
+    width: 100%;
+}
+
+#menu ul{
+    margin: 0px;
+    width: var(--full-width);
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li a{
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: var(--fs-color-foreground);
+}
+
+li{
+    padding: 10px;
+}
+
+#menu ul li:hover{
+    background-color: var(--f-color-hover);
+}
+
+#menuIcon{
+    display: none;
+}
+
+main{
+    margin: 0px 40px;
+    
+}
+
+main .content{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+main h1{
+    text-align: center;
+}
+
+.content{
+    display: block;
+}
+
+h2{
+    color: #243119;
+}
+
+button{
+    color: var(--fs-color-foreground);
+    background-color: var(--second-color);
+}
+
+h3, h4, h5{
+    color: var(--second-color);
+}
+
+a{
+    color: var(--third-color);
+}
+
+main div{
+    width: var(--full-width);
+}
+
+footer{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+footer p{
+    width: var(--full-width);
+}

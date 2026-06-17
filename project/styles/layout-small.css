@@ -1,0 +1,69 @@
+
+@media screen and (max-width:70rem) {
+
+    header{
+        flex-direction: column;
+    }
+
+    .menu-header{
+        width: var(--full-width);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-header span{
+        width:var(--full-width);
+        text-align: center;
+    }
+    #menu{
+        display: none;
+    }
+
+    #menu.active{
+        display: block;
+    }
+
+    #menu.active ul, li{
+        width:var(--full-width);
+        flex-direction: column;
+    }
+
+    #menuIcon{
+        color:var(--fs-color-foreground);
+        text-decoration: none;
+        display: block !important;
+    }
+    #menuIcon::before{
+        margin-right: 40px;
+        width: var(--full-width);
+        content: "☰";
+    }
+
+    #menuIcon.active::before{
+        width: var(--full-width);
+        content: "✖";
+    } 
+    
+    main{
+        display: block;
+    }
+
+    section{
+        margin-bottom: 20px;
+    }
+
+    main h1{
+        grid-column: span 1;
+    }
+
+    main .content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    footer{
+        flex-direction: column;
+    }
+}

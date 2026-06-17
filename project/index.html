@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Metadata -->
+    <meta name="author" content="Bairon Cayetano">
+    <meta name="description" content="scheduler for clinics and hospitals to digitalize their internal operations">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/layout-small.css">
+    <link rel="stylesheet" href="./styles/my-schedule.css">
+
+    <!--Icon-->
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+
+    <!-- JS -->
+    <script src="./scripts/dates.js" defer></script>
+    <script src="./scripts/navbar.js" defer></script>
+    <script src="./scripts/my-schedule.js" defer></script>
+    
+    <title>ClinicX Online | My Schedule</title>
+</head>
+<body>
+    <header>
+        <div class="menu-header">
+            <img src="./images/icon.svg" alt="ClinicX Online Icon">
+            <span>ClinicX Online</span>
+            <a aria-label="menu" href="#" id="menuIcon"></a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a aria-label="my schedule" href="./">My schedule</a></li>
+                <li><a aria-label="create new appointment" href="./new-appointment.html">Add appointment</a></li> 
+                <li><a aria-label="edit appointments" href="./edit.html">Edit appointments</a></li>
+                <li><a aria-label="add new patient" href="./add-patient.html">Add patient</a></li>             
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>My Schedule</h1>
+        <div class="content">
+             <section id="schedule">
+                <div id="calendar"></div>
+                <div class="buttons">
+                    <button id="back">Back</button>
+                    <button id="next">Next</button>
+                </div>
+             </section>
+            <section id="info" class="empty">
+                <p>Please, select a date to start</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+         <p>&copy; <span id="currentYear"></span> - Bairon Cayetano - Honduras</p>
+         <p>WDD131 | Dynamic Web Fundamentals</p>
+    </footer>
+</body>
+</html>
