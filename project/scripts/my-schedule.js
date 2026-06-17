@@ -34,26 +34,24 @@ function createCalendar(month, year){
     let lastMonthInfo = getMonthCalendar(month-1,year);
     let nextMonthInfo = getMonthCalendar(month+1,year);
 
-    calendar.innerHTML = ``; //To clean the element
+    //month
+    const monthElement = document.getElementsByClassName("monthName")[0];
+    let text = `${months[month-1]} (${date.getFullYear()})`;
+    if(monthElement.id !== month) monthElement.id = month;
+    if(monthElement.textContent !== text) monthElement.textContent = `${months[month-1]} (${date.getFullYear()})`;
+
     let content = "";
     let count = 0;
-
-    //month
-    content += `<div class="monthName" id="${month}">${months[month-1]} (${date.getFullYear()})</div>`;
-
-    //days of the week 
-    for (const day of dayOfTheWeek) {
-        content += `<div class="dayName">${day}</div>`;
-    }
 
     //days empty (begenning)
     let daysEmpty = monthInfo.startDay;
     for (let i = 0; i < daysEmpty; i++) {
         let dayNumber = lastMonthInfo.days-daysEmpty+i;
-        let id = -dayNumber;
-        content += `<div class="day locked last" id="${id}">
-            <span class="dayNumber">${dayNumber}</span>
-        </div>`;
+        let attribute = -dayNumber;
+        let element = document.getElementById(`d${count}`);
+        element.setAttribute("data",attribute);
+        element.classList.add("locked", "last");
+        element.textContent = dayNumber;
         count++;
     }
 
@@ -65,23 +63,30 @@ function createCalendar(month, year){
         if(dayNumber === selected.day && month === selected.month && year === selected.year){
             className += " selected";
         }
-        let elementContent = isToday ? `<span class="dayNumber">Today</span>` : "";
-        
-        content += `<div class="${className}" id="${dayNumber}">
+        let elementContent = `<div class="${className}" id="${dayNumber}">
             <span class="dayNumber">${dayNumber}</span>
-            ${elementContent}
+            ${isToday ? `<span class="dayNumber">Today</span>` : ""}
         </div>`;
+
+        let element = document.getElementById(`d${count}`);
+        element.classList = className;
+        element.setAttribute("data",dayNumber);
+        element.innerHTML = elementContent;
         count++;
     }
 
     let daysLeft = 7 - (count - 7) % 7;
     for (let i = 0; i < daysLeft; i++) {
         let dayNumber = i+1;
-        content += `<div class="day locked next" id="${-dayNumber}">
-            <span class="dayNumber">${dayNumber}</span>
-        </div>`
+        let element = document.getElementById(`d${count}`);
+        if(!element.classList.contains("locked")) element.classList.add("locked");
+        if(!element.classList.contains("next")) element.classList.add("next");
+        element.setAttribute("data",-dayNumber);
+        element.innerHTML = `<span class="dayNumber">${dayNumber}</span>`;
+        count++;
     }
-   calendar.innerHTML = content;
+   
+   
 }
 
 
@@ -90,15 +95,15 @@ function getMonth(){
 }
 
 function getDayInfo(e){
-    let id = e.target.id || e.target.parentNode.id;
-    if(Number.isNaN(parseInt(id))) return
+    let metaDay = e.target.getAttribute("data") || e.target.parentNode.getAttribute("data") || e.target.parentNode.parentNode.getAttribute("data");
+    if(Number.isNaN(parseInt(metaDay))) return
 
     //lastMonth day
-    id = parseInt(id);
-    if(id < 0 && id <= -10 ) {
+    metaDay = parseInt(metaDay);
+    if(metaDay < 0 && metaDay <= -10 ) {
         let month = getMonth();
         selected = {
-            day:id,
+            day:metaDay,
             month: month === 1 ? 12 : getMonth(),
             year: month === 1 ? date.getFullYear() - 1 : date.getFullYear(),
         }
@@ -106,10 +111,10 @@ function getDayInfo(e){
         return
     }
     //nextMonth day
-    if(id < 0 && id >= -10){
+    if(metaDay < 0 && metaDay >= -10){
         let month = getMonth();
         selected = {
-            day:id,
+            day:metaDay,
             month: month === 12 ? 1 : getMonth(),
             year: month === 12 ? date.getFullYear() + 1 : date.getFullYear(), 
         }
@@ -118,7 +123,7 @@ function getDayInfo(e){
     }
 
     selected = {
-        day:id,
+        day:metaDay,
         month: getMonth(),
         year: date.getFullYear(), 
     }
@@ -127,8 +132,10 @@ function getDayInfo(e){
     if(prevSelected){
        prevSelected.classList.remove("selected"); 
     }
-    document.getElementById(id).classList.add("selected");
-    displayAppointments(id,getMonth(),date.getFullYear());
+
+    document.getElementById(metaDay).classList.add("selected");
+    createCalendar(selected.month);
+    displayAppointments(metaDay,getMonth(),date.getFullYear());
 }
 
 
@@ -169,7 +176,7 @@ function displayAppointments(day,month,year){
         if(!infoContainer.classList.contains("empty")){
             infoContainer.classList.add("empty");
         }
-        infoContainer.innerHTML = `<p>There are not appointments for today</p>`;
+        infoContainer.innerHTML = `<p>There are not appointments for this day</p>`;
         return
     }
 

@@ -17,7 +17,8 @@
     gap: 10px;
 }
 
-#calendar .monthName{
+ .monthName{
+    padding: 10px;
     grid-column: span 7;
     width: 100%;
     text-align: center;
@@ -25,7 +26,16 @@
     font-size: 20px;
 }
 
-#calendar .dayName{
+.week{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.week .dayName{
+    text-align: center;
     background-color: black;
     color:white;
     font-weight: bold;
