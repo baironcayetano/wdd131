@@ -24,11 +24,12 @@ function getAppointments(month,year){
 
 function getMonthCalendar(monthToEval, yearToEval){
     let days = new Date (yearToEval,monthToEval,0);
-    return {month:monthToEval,year:yearToEval, days:days.getDate(), startDay:days.getDay()};
+    let firstDay = new Date(yearToEval, monthToEval,1).getDay();
+    return {month:monthToEval,year:yearToEval, days:days.getDate(), startDay:firstDay};
 }
 
 function createCalendar(month, year){
-    month = month ? month :  date.getMonth() + 1;
+    month = month ? month :  date.getMonth();
     year = year ? year : date.getFullYear();
     let monthInfo = getMonthCalendar(month,year);
     let lastMonthInfo = getMonthCalendar(month-1,year);
@@ -36,14 +37,41 @@ function createCalendar(month, year){
 
     //month
     const monthElement = document.getElementsByClassName("monthName")[0];
-    let text = `${months[month-1]} (${date.getFullYear()})`;
+    let text = `${months[month]} (${date.getFullYear()})`;
     if(monthElement.id !== month) monthElement.id = month;
-    if(monthElement.textContent !== text) monthElement.textContent = `${months[month-1]} (${date.getFullYear()})`;
+    if(monthElement.textContent !== text) monthElement.textContent = `${months[month]} (${date.getFullYear()})`;
 
     let content = "";
     let count = 0;
 
-    //days empty (begenning)
+    let gridTotal = (monthInfo.startDay + monthInfo.days) > 35 ? 42 : 35; 
+    let dayNodes = document.getElementsByClassName("day") || [];
+
+    if(dayNodes.length > gridTotal){
+        let numToRemove = dayNodes.length - gridTotal;
+        for(let i = 0; i < numToRemove; i++){ 
+            calendar.removeChild(calendar.lastChild);
+        }
+    }
+
+    if(dayNodes.length < gridTotal){
+        let numToAdd = gridTotal - dayNodes.length;
+        for (let i = 0; i < numToAdd; i++) {
+            const newNode = document.createElement("div");
+            let day = monthInfo.days + i;
+            if(day > monthInfo.days){
+                day = i;
+            }
+            let className = (day <= 10) ? "day locked next" :"day";
+            newNode.className = className;
+            newNode.id = `d-${i+dayNodes.length}`;
+            newNode.setAttribute("data",-i);
+            newNode.textContent = `${day}`;
+            calendar.appendChild(newNode);
+        }
+    }
+
+    //first days
     let daysEmpty = monthInfo.startDay;
     for (let i = 0; i < daysEmpty; i++) {
         let dayNumber = lastMonthInfo.days-daysEmpty+i;
@@ -58,44 +86,47 @@ function createCalendar(month, year){
     //days
     for (let i = 0; i < monthInfo.days; i++) {
         let dayNumber = i+1;
-        let isToday = month === (currentDate.getMonth()+1) && dayNumber === currentDate.getDate(); 
+        let isToday = month === currentDate.getMonth() && dayNumber === currentDate.getDate() && year === currentDate.getFullYear(); 
         let className = isToday ? "day today" : "day";
         if(dayNumber === selected.day && month === selected.month && year === selected.year){
             className += " selected";
         }
-        let elementContent = `<div class="${className}" id="${dayNumber}">
-            <span class="dayNumber">${dayNumber}</span>
-            ${isToday ? `<span class="dayNumber">Today</span>` : ""}
-        </div>`;
+
+        let textContent = isToday ? "Today" : "";
 
         let element = document.getElementById(`d${count}`);
-        element.classList = className;
-        element.setAttribute("data",dayNumber);
-        element.innerHTML = elementContent;
+
+        if(element){
+            element.className = className;
+            element.setAttribute("data",dayNumber);
+            element.textContent = `${dayNumber} ${textContent}`;
+        }
         count++;
     }
 
-    let daysLeft = 7 - (count - 7) % 7;
-    for (let i = 0; i < daysLeft; i++) {
-        let dayNumber = i+1;
-        let element = document.getElementById(`d${count}`);
-        if(!element.classList.contains("locked")) element.classList.add("locked");
-        if(!element.classList.contains("next")) element.classList.add("next");
-        element.setAttribute("data",-dayNumber);
-        element.innerHTML = `<span class="dayNumber">${dayNumber}</span>`;
-        count++;
-    }
-   
-   
+    //days after
+   let dayNextMonth = 1;
+   while(count < gridTotal){
+     let element = document.getElementById(`d${count}`);
+
+     if(element){
+        element.className = "day locked next";
+        element.setAttribute("data",-dayNextMonth);
+        element.textContent = dayNextMonth;
+     }
+
+     dayNextMonth++;
+     count++;
+   }
 }
 
 
 function getMonth(){
-    return parseInt(document.getElementsByClassName("monthName")[0].id) || date.getMonth()+1;
+    return parseInt(document.getElementsByClassName("monthName")[0].id) || date.getMonth();
 }
 
 function getDayInfo(e){
-    let metaDay = e.target.getAttribute("data") || e.target.parentNode.getAttribute("data") || e.target.parentNode.parentNode.getAttribute("data");
+    let metaDay = e.target.getAttribute("data") || e.target.parentNode.getAttribute("data");
     if(Number.isNaN(parseInt(metaDay))) return
 
     //lastMonth day
@@ -104,8 +135,8 @@ function getDayInfo(e){
         let month = getMonth();
         selected = {
             day:metaDay,
-            month: month === 1 ? 12 : getMonth(),
-            year: month === 1 ? date.getFullYear() - 1 : date.getFullYear(),
+            month: month === 0 ? 11 : getMonth(),
+            year: month === 0 ? date.getFullYear() - 1 : date.getFullYear(),
         }
         showLastMonth();
         return
@@ -115,8 +146,8 @@ function getDayInfo(e){
         let month = getMonth();
         selected = {
             day:metaDay,
-            month: month === 12 ? 1 : getMonth(),
-            year: month === 12 ? date.getFullYear() + 1 : date.getFullYear(), 
+            month: month === 11 ? 0 : getMonth(),
+            year: month === 11 ? date.getFullYear() + 1 : date.getFullYear(), 
         }
         showNextMonth();
         return
@@ -133,7 +164,6 @@ function getDayInfo(e){
        prevSelected.classList.remove("selected"); 
     }
 
-    document.getElementById(metaDay).classList.add("selected");
     createCalendar(selected.month);
     displayAppointments(metaDay,getMonth(),date.getFullYear());
 }
@@ -141,9 +171,9 @@ function getDayInfo(e){
 
 function showLastMonth(){
     let month = getMonth();
-    if(month === 1){
+    if(month === 0){
         date = new Date(date.getFullYear()-1,11,1);
-        document.getElementsByClassName("monthName")[0].id = 12;
+        document.getElementsByClassName("monthName")[0].id = 11;
         month = getMonth();
     }else{
         month -= 1;
@@ -153,9 +183,9 @@ function showLastMonth(){
 
 function showNextMonth(){
     let month = getMonth();
-    if(month === 12){
+    if(month === 11){
        date = new Date(date.getFullYear()+1,0,1); 
-       document.getElementsByClassName("monthName")[0].id = 1;
+       document.getElementsByClassName("monthName")[0].id = 0;
        month = getMonth();
     }else{
         month += 1;

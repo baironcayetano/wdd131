@@ -42,6 +42,7 @@
 }
 
 #calendar .day{
+    text-align: center;
     background-color: whitesmoke;
     min-height: 80px;
     display: flex;
@@ -173,5 +174,17 @@ ul li.active .description{
 
     #calendar{
         font-size: 16px;
+    }
+}
+
+/** for iphones**/
+@media screen and (max-width:50rem) {
+
+    main{
+        margin:0px 20px;
+    }
+
+    #calendar{
+        font-size: 12px;
     }
 }
