@@ -53,8 +53,6 @@ function AddPatient(e){
     const form = new FormData(formulario);
     const data = Object.fromEntries(form);
     data.id = `${data.fname}_${data.lname}_${data.age}`;
-    
-    alert(data.id);
 
     if (existPatientInLocalStorage(data)){
         alert("This client already exist")
