@@ -11,13 +11,15 @@
     <!--CSS-->
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/layout-small.css">
+    <link rel="stylesheet" href="./styles/new-appointment.css">
+    <link rel="stylesheet" href="./styles/form.css">
 
     <!--Icon-->
     <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
 
     <!-- JS -->
-    <script src="./scripts/dates.js" defer></script>
-    <script src="./scripts/navbar.js" defer></script>
+     <script src="./scripts/dates.js" defer></script>
+     <script src="./scripts/navbar.js" defer></script>
     
     <title>ClinicX Online | Add Appointment</title>
 </head>
@@ -38,9 +40,56 @@
         </nav>
     </header>
     <main>
-        <h1>Create new appointment</h1>
-        <section id="schedule"></section>
-        <section id="form-container"></section>
+        <h1>Add new appointment</h1>
+        <div class="content">
+            <section id="preview">
+                <h2>Preview</h2>
+                <div class="prev-image">
+                    <img src="./images/add-to-calendar.svg" alt="add to calendar icon svg" width="150" height="150">
+                </div>
+                <h3>Information</h3>
+                <div class="prev-appointment">
+                    <p>Title:</p>
+                    <span id="title-span" class="empty">Not specified</span>
+                    <p>Patient</p>
+                    <span id="patient-span" class="empty">Not specified</span>
+                    <p>Date</p>
+                    <span id="date-span" class="empty">Not specified</span>
+                    <p>Hour</p>
+                    <span id="hour-span" class="empty">Not specified</span>
+                    <p>Description:</p>
+                    <span id="description-span" class="empty-optional">Optional</span>
+                    
+                </div>
+            </section>
+            <section id="form-container">
+                <h2>Form</h2>
+                <form action="./index.html" method="get">
+                    <fieldset>
+                        <legend>Appointment</legend>
+                        <div class="metadata">
+                            
+                            <label for="title">Title (Required)</label>
+                            <input type="text" name="title" id="title" required>
+                            <label for="description">Description (Optional)</label>
+                            <textarea name="description" id="description" maxlength="150"></textarea>
+                            
+                            <label for="patient">Patient (Required)</label>
+                            <select name="patient" id="patient" required>
+                            <option value="" selected disabled>Select</option>
+                             <!-- More patients will be added dinamically--->
+                            </select>
+
+                            <label for="date">Date (Required)</label>
+                            <input type="date" name="date" id="date" required>
+                            <label for="time">Hour (Requred)</label>
+                            <input type="time" name="time" id="time">
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Create appointment">
+                </form>
+            </section>
+        </div>
     </main>
     <footer>
          <p>&copy; <span id="currentYear"></span> - Bairon Cayetano - Honduras</p>

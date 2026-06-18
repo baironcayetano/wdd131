@@ -24,7 +24,8 @@
     margin-bottom: 20px;
 }
 
-#preview .prev-documentation{
+
+#preview .prev-appointment{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -33,24 +34,24 @@
     margin:40px 0px;
 }
 
-.prev-documentation p{
+.prev-appointment p{
     font-weight: bold;
 }
 
-.prev-documentation span.empty{
+.prev-appointment span.empty{
     color: brown;
 }
 
-.prev-documentation span.empty-optional{
+.prev-appointment span.empty-optional{
     color: black;
 }
 
-.prev-documentation #address-span.empty-optional{
+.prev-appointment #description-span.empty-optional{
     grid-column: span 1;
     color: black;
 }
 
-.prev-documentation #address-span{
+.prev-appointment #description-span{
     grid-column: span 4;
     text-align: justify;
     color: black;
@@ -69,7 +70,7 @@
         display: flex;
     }
 
-    #preview .prev-documentation{
+    #preview .prev-appointment{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
