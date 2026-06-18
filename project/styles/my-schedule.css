@@ -175,16 +175,32 @@ ul li.active .description{
     #calendar{
         font-size: 16px;
     }
+
+    .day{
+        font-size: 16px;
+    }
+
+    #calendar .day.locked{
+        font-size: 16px !important;
+    }
 }
 
 /** for iphones**/
 @media screen and (max-width:50rem) {
 
     main{
-        margin:0px 20px;
+        margin:0px 10px;
     }
 
     #calendar{
         font-size: 12px;
+    }
+
+    .day{
+        font-size: 12px;
+    }
+
+    #calendar .day.locked{
+        font-size: 12px !important;
     }
 }
