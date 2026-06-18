@@ -1,0 +1,20 @@
+button{
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
+    color: white;
+    background-color: brown;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button.disabled{
+    color:gray;
+    background-color: gainsboro;
+}
+
+button.disabled:hover{
+    cursor:not-allowed;
+}

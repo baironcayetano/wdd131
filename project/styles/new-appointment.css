@@ -38,6 +38,13 @@
     font-weight: bold;
 }
 
+.prev-appointment span{
+    display: block;
+    color:darkcyan;
+    overflow-wrap: break-word; 
+    word-break: break-word;
+}
+
 .prev-appointment span.empty{
     color: brown;
 }
@@ -71,7 +78,14 @@
     }
 
     #preview .prev-appointment{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+    }
+
+    #preview .prev-appointment p, #preview .prev-appointment span{
+        width: 100%;
+        text-align: start;
     }
 }

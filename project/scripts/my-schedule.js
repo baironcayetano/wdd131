@@ -18,8 +18,16 @@ const lastMonthButton = document.getElementById("back");
 
 const infoContainer = document.getElementById("info");
 
-function getAppointments(month,year){
-    return JSON.parse(localStorage.getItem(`ap-${month}-${year}`)) || [];
+function getAppointments(){
+    let appointmentSt = getAppointmentsFromStorage();
+    let appointments = [];
+    for (const  [_,appointment] of Object.entries(appointmentSt)) {
+        let appointmentDate = new Date(appointment.date);
+        if(selected.day === appointmentDate.getDate() && selected.month === appointmentDate.getMonth() && selected.year === appointmentDate.getFullYear()){
+            appointments.push(appointment);
+        }
+    }
+    return appointments || [];
 }
 
 //this function returns the quantity of days of a month 
@@ -321,35 +329,36 @@ function showNextMonth(){
 
 function expandInfo(e){
     let id = e.target.id || e.target.parentNode.id || e.target.parentNode.parentNode.id;
-    if(!id || id.indexOf("s-") === -1) return;
     document.getElementById(id).classList.toggle("active");
 }
 
 function displayAppointments(day,month,year){
     let appointments = getAppointments(month,year);
-    let dayAppt = appointments[day-1];
-    if(!dayAppt){
+    if(appointments.length === 0){
         if(!infoContainer.classList.contains("empty")){
             infoContainer.classList.add("empty");
         }
         infoContainer.innerHTML = `<p>There are not appointments for this day</p>`;
-        return
+        return   
     }
+
 
     if(infoContainer.classList.contains("empty")) infoContainer.classList.remove("empty");
 
     let content = "<ul><h2>Appointments</h2>";
-    dayAppt.forEach((appointment,i) => {
-        content += `<li class="expand" id="s-${i}">
-            <span class="small">name: ${appointment.name} | hour: ${appointment.description.hour}</span>
+    for(let i = 0; i < appointments.length; i++){
+        let element = appointments[i];
+         content += `<li class="expand" id="${element.id}">
+            <span class="small">Patient: ${element.patient} | Hour: ${element.time}</span>
             <div class="description">
-            <span>Description:</span>
-            <p><strong>name:</strong> ${appointment.name}</p>
-                <p><strong>hour:</strong> ${appointment.description.hour}</p>
-                <p><strong>specialist:</strong> ${appointment.description.specialist}</p>
+            <p id="close-message">(Click to close)</p>
+            <p><strong>Title:</strong> ${element.title}</p>
+            <p><strong>Patient:</strong> ${element.patient}</p>
+            <p><strong>Description:</strong> ${element.description}</p>
+            <p><strong>Hour:</strong> ${element.time}</p>
             </div>
-        </li>`
-    });
+        </li>`       
+    }
     content += "</ul>"
     infoContainer.innerHTML = content;
 
@@ -358,7 +367,6 @@ function displayAppointments(day,month,year){
         for (let i = 0; i < elements.length; i++) {
             const element = elements[i];
             element.addEventListener("click",expandInfo)
-            
         }
     }
 

@@ -1,4 +1,4 @@
-const formulario = document.querySelector("form");
+const form = document.querySelector("form");
 
 const previewPatientElements = {
     "fname":{
@@ -31,27 +31,12 @@ const previewPatientElements = {
     },
 }
 
-function getPatientsFromLocalStorage(){
-    return JSON.parse(localStorage.getItem("patients")) || {};
-}
-
-function addPatientToLocalStorage(data){
-    const patients = getPatientsFromLocalStorage();
-    patients[data.id] = data;
-    localStorage.setItem("patients",JSON.stringify(patients));
-}
-
-function existPatientInLocalStorage(data){
-    patients = JSON.parse(localStorage.getItem("patients"));
-    if(!patients || !patients[data.id]) return false;
-    return true;
-}
 
 function AddPatient(e){
     e.preventDefault();
 
-    const form = new FormData(formulario);
-    const data = Object.fromEntries(form);
+    const formdata = new FormData(form);
+    const data = Object.fromEntries(formdata);
     data.id = `${data.fname}_${data.lname}_${data.age}`;
 
     if (existPatientInLocalStorage(data)){
@@ -65,7 +50,7 @@ function AddPatient(e){
     e.target.reset();
 }
 
-formulario.addEventListener("input",e=>UpdatePreview(e,previewPatientElements));
-formulario.addEventListener("submit",AddPatient);
+form.addEventListener("input",e=>UpdatePreview(e,previewPatientElements));
+form.addEventListener("submit",AddPatient);
 
 

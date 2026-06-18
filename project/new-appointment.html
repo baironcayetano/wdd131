@@ -20,6 +20,10 @@
     <!-- JS -->
      <script src="./scripts/dates.js" defer></script>
      <script src="./scripts/navbar.js" defer></script>
+     <script src="./scripts/previews.js" defer></script>
+     <script src="./scripts/patients.js" defer></script>
+     <script src="./scripts/appointments-creator.js" defer></script>
+     <script src="./scripts/appointments.js" defer></script>
     
     <title>ClinicX Online | Add Appointment</title>
 </head>
@@ -76,13 +80,13 @@
                             
                             <label for="patient">Patient (Required)</label>
                             <select name="patient" id="patient" required>
-                            <option value="" selected disabled>Select</option>
+                            <option value="" selected disabled id="empty-option">Select</option>
                              <!-- More patients will be added dinamically--->
                             </select>
 
                             <label for="date">Date (Required)</label>
                             <input type="date" name="date" id="date" required>
-                            <label for="time">Hour (Requred)</label>
+                            <label for="time">Hour (Required)</label>
                             <input type="time" name="time" id="time">
                         </div>
                     </fieldset>
