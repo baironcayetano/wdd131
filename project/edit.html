@@ -68,7 +68,11 @@
                     <fieldset>
                         <legend>Appointment</legend>
                         <div class="metadata">
-                            
+                            <label for="appointment">Select the appointment (Required)</label>
+                            <select name="appointment" id="appointment" required>
+                            <option value="" selected disabled>-- Select --</option>
+                             <!-- appointms will be added dinamically--->
+                            </select>
                             <label for="title">Title (Required)</label>
                             <input type="text" name="title" id="title" required>
                             <label for="description">Description (Optional)</label>
