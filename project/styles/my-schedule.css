@@ -172,6 +172,10 @@ ul li.active .description{
         margin:0px 20px;
     }
 
+    main .content{
+        flex-direction: column-reverse;
+    }
+
     #calendar{
         font-size: 16px;
     }

@@ -11,6 +11,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/layout-small.css">
+    <link rel="stylesheet" href="./styles/add-patient.css">
 
     <!--Icon-->
     <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
@@ -39,8 +40,78 @@
     </header>
     <main>
         <h1>Add new patient</h1>
-        <section id="schedule"></section>
-        <section id="form-container"></section>
+        <div class="content">
+            <section id="preview">
+                <h2>Preview</h2>
+                <div class="prev-image">
+                    <img src="./images/frame-person.svg" alt="frame person icon svg" width="150" height="150">
+                </div>
+                <h3>Information</h3>
+                <div class="prev-documentation">
+                    <p>Name:</p>
+                    <span id="fname-span" class="empty">Not specified</span>
+                    <p>Last Name:</p>
+                    <span id="lname-span" class="empty">Not specified</span>
+                    <p>Sex</p>
+                    <span id="sex-span" class="empty">Not specified</span>
+                    <p>Age</p>
+                    <span id="age-span" class="empty">Not specified</span>
+                </div>
+                <h3>Contact</h3>
+                <div class="prev-documentation">   
+                    <p>Phone:</p>
+                    <span id="phone-span" class="empty">Not specified</span>
+                    <p>Email:</p>
+                    <span id="email-span" class="empty-optional">Optional</span>
+                    <p>Address:</p>
+                    <span id="address-span" class="empty-optional">Optional</span>
+                </div>
+            </section>
+            <section id="form-container">
+                <h2>Form</h2>
+                <form action="./index.html" method="get">
+                    <fieldset>
+                        <legend>Personal documentation</legend>
+                        <div class="documentation">
+                            <h3>General Information</h3>
+                            <label for="fname">First name (Required)</label>
+                            <input type="text" name="fname" id="fname" required>
+                            <label for="lname">Last name (Required)</label>
+                            <input type="text" name="lname" id="lname" required>
+                            <label for="sex">Sex (Required)</label>
+                            <select name="sex" id="sex" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            </select>
+                            <label for="age">Age (Required)</label>
+                            <input type="number" name="age" id="age" required>
+                        </div>
+                        <div class="contact-information">
+                            <h3>Contact Information</h3>
+                            <label for="phone" required>Phone (Required)</label>
+                            <input type="tel" name="phone" id="phone">
+                            <label for="email">Email (Optional)</label>
+                            <input type="email" name="email" id="email">
+                            <label for="address">Address (Optional)</label>
+                            <span class="help">Maximum 200 characters</span>
+                            <textarea name="address" id="address" maxlength="200"></textarea>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>History</legend>
+                        <div class="history">
+                            <label for="allergies">Allergies (Required)</label>
+                            <span class="help">Maximum 200 characters</span>
+                            <textarea name="allergies" id="allergies" maxlength="200" required></textarea>
+                            <label for="diagnoses">Pre-existing Conditions (Optional)</label>
+                            <textarea name="diagnoses" maxlength="200" id="diagnoses"></textarea>
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Add patient">
+                </form>
+            </section>
+        </div>
     </main>
     <footer>
          <p>&copy; <span id="currentYear"></span> - Bairon Cayetano - Honduras</p>

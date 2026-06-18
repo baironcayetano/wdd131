@@ -1,0 +1,152 @@
+.preview {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: var(--full-width);
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form fieldset{
+    width: 100%;
+}
+
+legend{
+    font-size: 20px;
+    padding: 10px;
+}
+
+h2{
+    text-align: center;
+}
+
+.documentation, .contact-information, .history{
+    padding: 10px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+label{
+    text-align: start;
+    width:100%;
+}
+
+input, select{
+    grid-column: span 3;
+    width: 100%;
+}
+
+.documentation h3, .contact-information h3{
+    text-align: start;
+    width: 100%;
+}
+
+.documentation span, .contact-information span, .history span{
+    font-weight: bold;
+    text-align: start;
+    width: 100%;
+}
+
+.documentation textarea, .contact-information textarea, .history textarea{
+    width: 100%;
+    height: 200px;
+    grid-column: span 4;
+}
+
+input, select{
+    height: 30px;
+}
+
+input[type="submit"]{
+    width: 80%;
+    margin-top: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color:var(--third-color);
+    color: var(--t-color-foreground);
+    font-size: 14px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+#preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 40px;
+}
+
+#preview .prev-image{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#preview .prev-documentation{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-content: center;
+    margin:40px 0px;
+}
+
+.prev-documentation p{
+    font-weight: bold;
+}
+
+.prev-documentation span.empty{
+    color: brown;
+}
+
+.prev-documentation span.empty-optional{
+    color: black;
+}
+
+.prev-documentation #address-span.empty-optional{
+    grid-column: span 1;
+    color: black;
+}
+
+.prev-documentation #address-span{
+    grid-column: span 4;
+    text-align: justify;
+    color: black;
+}
+
+/** small devices **/
+@media screen and (max-width:70rem) {
+    #preview{
+        display: none;
+    }
+}
+
+/** for iphones**/
+@media screen and (max-width:50rem) {
+    #preview{
+        display: flex;
+    }
+
+    #preview .prev-documentation{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
