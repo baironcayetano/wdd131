@@ -27,6 +27,7 @@
 #preview .prev-documentation{
     width: 100%;
     display: grid;
+    gap:10px;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     justify-content: center;
@@ -35,6 +36,14 @@
 
 .prev-documentation p{
     font-weight: bold;
+}
+
+.prev-documentation span{
+    max-width: 200px;
+    display: block;
+    color:darkcyan;
+    overflow-wrap: break-word; 
+    word-break: break-word;
 }
 
 .prev-documentation span.empty{
@@ -53,7 +62,6 @@
 .prev-documentation #address-span{
     grid-column: span 4;
     text-align: justify;
-    color: black;
 }
 
 /** small devices **/
